@@ -1,4 +1,4 @@
-var transport = require('./lib/transports/memory');
+var transport = require('./lib/transport/memory');
 
 var charabanc = {};
 
