@@ -6,14 +6,14 @@ function loadServices(done) {
   return done();
 }
 
-function process(req, res) {
-  return charabanc.send('request', req.body, function(e, results) {
+function handleRequests(req, res) {
+  return charabanc.request('default-request', req.body, function(e, results) {
     return res.end(JSON.stringify(results));
   }); 
 };
 
 return charabanc.configure({}, function() {
   return loadServices(function() {
-    return http.createServer(process).listen(8080, '127.0.0.1');
+    return http.createServer(handleRequests).listen(8080, '127.0.0.1');
   });
 });

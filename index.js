@@ -5,6 +5,6 @@ var charabanc = {};
 charabanc.configure = transport.configure;
 charabanc.register = transport.register;
 charabanc.unregister = transport.unregister; 
-charabanc.send = transport.send;
+charabanc.request = transport.request;
 
 module.exports = charabanc;

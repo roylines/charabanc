@@ -16,7 +16,7 @@ describe('charabanc', function() {
       charabanc.unregister('act', service, done);
     });
     it('should call service on send', function(done) {
-      charabanc.send('act', { data: 'DATA'}, function(e) {
+      charabanc.request('act', { data: 'DATA'}, function(e) {
         service.calledOnce.should.be.true;
         return done(e);
       });      
@@ -37,7 +37,7 @@ describe('charabanc', function() {
       charabanc.unregister('act', service2, done);
     });
     it('should call each service on send', function(done) {
-      charabanc.send('act', { data: 'DATA'}, function(e) {
+      charabanc.request('act', { data: 'DATA'}, function(e) {
         service1.calledOnce.should.be.true;
         service2.calledOnce.should.be.true;
         return done(e);

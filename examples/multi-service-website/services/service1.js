@@ -1,7 +1,9 @@
 var charabanc = require('../../../index.js');
 
-function process(action, payload, done) {
-  return done(null, 'service1 response');
+function reply(action, payload, done) {
+  return charabanc.request('get-time', null, function(e, results) {
+    return done(null, { src: 'service1', utc: results.utc });
+  }); 
 }
 
-charabanc.register('request', process); 
+charabanc.register('default-request', reply); 

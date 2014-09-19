@@ -1,7 +1,7 @@
 var charabanc = require('../../../index.js');
 
-function process(action, payload, done) {
-  return done(null, 'service2 response');
+function reply(action, payload, done) {
+  return done(null, { other: 'service2 response' });
 }
 
-charabanc.register('request', process); 
+charabanc.register('default-request', reply); 
