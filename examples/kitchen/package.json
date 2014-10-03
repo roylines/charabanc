@@ -1,0 +1,15 @@
+{
+  "name": "charabanc-kitchen",
+  "version": "0.0.1",
+  "description": "Example website using charabanc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Roy Lines",
+  "license": "MIT",
+  "dependencies": {
+    "require-all": "0.0.8",
+    "router": "0.6.2"
+  }
+}

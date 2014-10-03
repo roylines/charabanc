@@ -1,6 +1,6 @@
 {
   "name": "charabanc",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Simple micro-services bus",
   "main": "index.js",
   "scripts": {
@@ -23,8 +23,10 @@
   "homepage": "https://github.com/roylines/charabanc",
   "dependencies": {
     "async": "^0.9.0",
+    "lodash": "^2.4.1"
+  },
+  "devDependencies": {
     "chai": "^1.9.1",
-    "lodash": "^2.4.1",
     "mocha": "^1.21.4",
     "sinon": "^1.10.3"
   }
