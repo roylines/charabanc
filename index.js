@@ -8,5 +8,6 @@ charabanc.unregister = transport.unregister;
 charabanc.request = transport.request;
 charabanc.reset = transport.reset;
 charabanc.dump = transport.dump;
+charabanc.trace = transport.trace;
 
 module.exports = charabanc;
