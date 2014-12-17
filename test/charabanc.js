@@ -5,6 +5,7 @@ var charabanc = require('../index.js'),
 chai.should();
 
 describe('charabanc', function() {
+
   describe('with one service', function() {
     var service;
     before(function(done) {
@@ -24,6 +25,7 @@ describe('charabanc', function() {
       });
     });
   });
+
   describe('with two services', function() {
     var service1, service2;
     before(function(done) {
@@ -89,5 +91,8 @@ describe('charabanc', function() {
         return done(e);
       });
     });
+  });
+  it('can set transports', function() {
+    charabanc.setTransport(require('../lib/transport/memory'));
   });
 });
