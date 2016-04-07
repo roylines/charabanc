@@ -1,6 +1,6 @@
 var charabanc = require('../index.js'),
-  chai = require('chai'),
-  sinon = require('sinon');
+    chai = require('chai'),
+    sinon = require('sinon');
 
 chai.should();
 
@@ -53,6 +53,42 @@ describe('charabanc', function() {
       });
     });
   });
+
+  describe('results merge', function() {
+    var service1, service2, service3, service4, result;
+    result = {test: "hello"};
+
+    before(function(done) {
+      service1 = sinon.stub();
+      service1.yields(null, {});
+      service2 = sinon.stub();
+      service2.yields(null, null);
+      service3 = sinon.stub();
+      service3.yields(null);
+      service4 = sinon.stub();
+      service4.yields(null, result);
+
+      return charabanc.register('act', service1, function() {
+        return charabanc.register('act', service2, function() {
+          return charabanc.register('act', service3, function() {
+            return charabanc.register('act', service4, done);
+          });
+        });
+      });
+    });
+
+    after(function(done) {
+      return charabanc.reset(done);
+    });
+
+    it('should not merge and return results as is if only one service returns result', function(done) {
+      charabanc.request('act', {}, function(e, results) {
+        results.should.equal(result);
+        return done(e);
+      });
+    });
+  });
+
   describe('with named services', function() {
     function service1(a, p, d) {
       return d();
